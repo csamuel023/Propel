@@ -25,7 +25,12 @@
         </activity>
         <activity android:name=".SecondActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".FourthActivity"></activity>
+        <activity android:name=".FourthActivity" />
+        <activity android:name=".Goals" />
+        <activity android:name=".Goal_short_long" />
+        <activity android:name=".ViewGoal" />
+        <activity android:name=".Summary" />
+        <activity android:name=".WeeklyCalendar"></activity>
     </application>
 
 </manifest>
