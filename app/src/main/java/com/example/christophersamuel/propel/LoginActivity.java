@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         // ***************START OF CODE*******************
 
-        ArrayList<String> users = getIntent().getExtras().getStringArrayList("users");
+        //ArrayList<String> users = getIntent().getExtras().getStringArrayList("users");
 
         btn = (Button)findViewById(R.id.email_sign_in_button);
 
