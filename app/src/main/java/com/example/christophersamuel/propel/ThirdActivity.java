@@ -8,6 +8,8 @@ import android.widget.Button;
 
 public class ThirdActivity extends AppCompatActivity {
 private Button bGoals;
+private Button btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,9 +23,22 @@ private Button bGoals;
             }
         });
 
+        btn = bGoals = (Button) findViewById(R.id.button3);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDay1();
+            }
+        });
+
     }
     public void openGoal(){
         Intent intent = new Intent(this,Goals.class);
+        startActivity(intent);
+    }
+
+    public void openDay1() {
+        Intent intent = new Intent(ThirdActivity.this, Day1Activity.class);
         startActivity(intent);
     }
 }
