@@ -28,7 +28,7 @@ private Button btn;
         // ****************END OF CODE********************
     }
     public void openLoginActivity(){
-        Intent intent = new Intent(this,LoginActivity.class);
+        Intent intent = new Intent(this,ThirdActivity.class);
         startActivity(intent);
     }
 }

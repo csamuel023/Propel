@@ -67,17 +67,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
         // ***************START OF CODE*******************
 
-        //Button button = (Button) findViewById(R.id.
+        ArrayList<String> users = getIntent().getExtras().getStringArrayList("users");
 
         btn = (Button)findViewById(R.id.email_sign_in_button);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               openThirdActivity();
+               openSecondActivity();
             }
         });
 
@@ -116,8 +115,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
-    public void openThirdActivity(){
-        Intent intent = new Intent(this,ThirdActivity.class);
+    public void openSecondActivity(){
+        Intent intent = new Intent(this,SecondActivity.class);
         startActivity(intent);
     }
     private void populateAutoComplete() {

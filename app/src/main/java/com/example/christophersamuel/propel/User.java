@@ -10,6 +10,7 @@ public class User {
     private String password;
     private int age;
     private int weight;
+    private double bmi;
     private boolean gender; // 0 male, 1 female
     private boolean active; // 0 passive, 1 active
 
@@ -73,6 +74,14 @@ public class User {
 
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    public double getBmi() {
+        return bmi;
+    }
+
+    public void setBmi(double bmi) {
+        this.bmi = bmi;
     }
 
     public boolean isGender() {
