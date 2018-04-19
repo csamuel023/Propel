@@ -31,6 +31,21 @@
         <activity android:name=".ViewGoal" />
         <activity android:name=".Summary" />
         <activity android:name=".WeeklyCalendar" />
+        <activity android:name=".Day1Activity" />
+        <activity android:name=".Day2Activity" />
+        <activity android:name=".Day3Activity" />
+        <activity android:name=".Day4Activity" />
+        <activity android:name=".Day5Activity" />
+        <activity android:name=".Day6Activity" />
+        <activity android:name=".Day7Activity" />
+        <activity android:name=".ExercisesActivity" />
+        <activity android:name=".BackActivity" />
+        <activity android:name=".BicepsActivity" />
+        <activity android:name=".CardioActivity" />
+        <activity android:name=".ChestActivity" />
+        <activity android:name=".CoreActivity" />
+        <activity android:name=".LegsActivity" />
+        <activity android:name=".ShouldersActivity" />
         <activity android:name=".ThirdActivity"></activity>
     </application>
 
