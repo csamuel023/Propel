@@ -12,7 +12,7 @@ private Button bGoals;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
-
+        //Goals button
         bGoals = (Button) findViewById(R.id.bGoals);
         bGoals.setOnClickListener(new View.OnClickListener() {
             @Override
