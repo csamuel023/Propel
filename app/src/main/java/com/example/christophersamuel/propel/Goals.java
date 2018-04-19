@@ -17,7 +17,7 @@ public class Goals extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_goals);
-        //Set up button
+        //Set up buttons
         bCreateGoal = (Button) findViewById(R.id.bCreateGoal);
         bCreateGoal.setOnClickListener(new View.OnClickListener() {
             @Override
