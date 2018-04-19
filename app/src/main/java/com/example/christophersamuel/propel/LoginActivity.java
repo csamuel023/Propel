@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private  Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,12 +72,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         //Button button = (Button) findViewById(R.id.
 
-        Button btn = (Button)findViewById(R.id.open_activity_button);
+        btn = (Button)findViewById(R.id.email_sign_in_button);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MyOtherActivity.class));
+               openFourthActivity();
             }
         });
 
@@ -367,6 +368,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = null;
             showProgress(false);
         }
+
     }
 }
 
