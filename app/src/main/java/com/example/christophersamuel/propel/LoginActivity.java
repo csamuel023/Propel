@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               openFourthActivity();
+               openThirdActivity();
             }
         });
 
@@ -116,7 +116,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
-
+    public void openThirdActivity(){
+        Intent intent = new Intent(this,ThirdActivity.class);
+        startActivity(intent);
+    }
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {
             return;

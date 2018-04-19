@@ -30,7 +30,8 @@
         <activity android:name=".Goal_short_long" />
         <activity android:name=".ViewGoal" />
         <activity android:name=".Summary" />
-        <activity android:name=".WeeklyCalendar"></activity>
+        <activity android:name=".WeeklyCalendar" />
+        <activity android:name=".ThirdActivity"></activity>
     </application>
 
 </manifest>
