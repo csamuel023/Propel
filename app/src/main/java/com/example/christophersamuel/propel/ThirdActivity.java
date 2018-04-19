@@ -23,7 +23,7 @@ private Button btn;
             }
         });
 
-        btn = bGoals = (Button) findViewById(R.id.button3);
+        btn = bGoals = (Button) findViewById(R.id.bCreateSchedule);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
