@@ -22,7 +22,7 @@ private Button btn;
                 openGoal();
             }
         });
-
+        // Button Create schedule
         btn = bGoals = (Button) findViewById(R.id.bCreateSchedule);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
