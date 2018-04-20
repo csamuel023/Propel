@@ -24,7 +24,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".SecondActivity" />
-        <activity android:name=".LoginActivity" />
         <activity android:name=".FourthActivity" />
         <activity android:name=".Goals" />
         <activity android:name=".Goal_short_long" />
@@ -46,7 +45,8 @@
         <activity android:name=".CoreActivity" />
         <activity android:name=".LegsActivity" />
         <activity android:name=".ShouldersActivity" />
-        <activity android:name=".ThirdActivity"></activity>
+        <activity android:name=".ThirdActivity" />
+        <activity android:name=".LoginSinup"></activity>
     </application>
 
 </manifest>
