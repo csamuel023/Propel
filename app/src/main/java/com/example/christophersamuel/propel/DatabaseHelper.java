@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper{
 
-
+    //Setup database
     private static final int DATABASE_VERSION =1;
     //private static final String DATABASE_NAME = "contacts.db";
     private static final String TABLE_NAME = "contacts";
@@ -37,6 +37,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         db.execSQL(query);
         this.onCreate(db);
     }
+    // Insert sign up information
     public void insertContact(Contact contact){
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -51,21 +52,25 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         values.put(COLUMN_PASS, contact.getPassword());
 
         db.insert(TABLE_NAME, null, values);
+        cursor.close();
         db.close();
     }
-    public String searchPass(String uname){
+    // Search for matching uname and pass
+    public String searchPass(String uname) {
         db = this.getReadableDatabase();
         String query = "select uname, password from " + TABLE_NAME;
         Cursor cursor = db.rawQuery(query, null);
         String uName, passW = "Not Found!";
-        if(cursor.moveToNext())
-        do{
-            uName = cursor.getString(0);
-            if(uName.equals(uname)){
-                passW = cursor.getString(1);
-                break; }
+        if (cursor.moveToNext())
+            do {
+                uName = cursor.getString(0);
+                if (uName.equals(uname)) {
+                    passW = cursor.getString(1);
+                    break;
+                }
             }
             while (cursor.moveToNext());
+        cursor.close();
         return passW;
     }
 
