@@ -31,5 +31,13 @@ public class Day3Activity extends AppCompatActivity {
                 startActivity(to_exercises);
             }
         });
+        Button done = (Button)findViewById(R.id.done);
+        done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent back = new Intent(Day3Activity.this, ThirdActivity.class);
+                startActivity(back);
+            }
+        });
     }
 }
