@@ -10,6 +10,7 @@ public class ThirdActivity extends AppCompatActivity {
 private Button bGoals;
 private Button btn;
 private Button bSummary;
+private Button bSeeSchedule;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +36,14 @@ private Button bSummary;
             @Override
             public void onClick(View v) {
                 openDay1();
+            }
+        });
+        bSeeSchedule = (Button) findViewById(R.id.bSeeSchedule);
+        bSeeSchedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ThirdActivity.this,WeeklyCalendar.class);
+                startActivity(intent);
             }
         });
 
