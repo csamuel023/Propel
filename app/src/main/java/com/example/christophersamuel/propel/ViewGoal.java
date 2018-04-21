@@ -1,5 +1,7 @@
 package com.example.christophersamuel.propel;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +15,7 @@ import java.util.ArrayList;
 
 public class ViewGoal extends AppCompatActivity {
     DatabaseForGoals dbForGoal = new DatabaseForGoals(this);
+    SQLiteDatabase db;
     //DatabaseHelper dbHelper = new DatabaseHelper(this);
     ArrayList<String> GoalInfo = new ArrayList<String>();
     private Button bDone;
@@ -28,6 +31,8 @@ public class ViewGoal extends AppCompatActivity {
         TextView two = (TextView) findViewById(R.id.two);
         TextView three = (TextView) findViewById(R.id.three);
         TextView four = (TextView) findViewById(R.id.four);
+        db = dbForGoal.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from goalsDB",null);
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
@@ -64,7 +69,7 @@ public class ViewGoal extends AppCompatActivity {
             three.setText(lbsGoal);
             four.setText("");
         }
-        else if(dbForGoal.retrieveInfo() != null){
+        else if(cursor.getCount() != 0){
 
             GoalInfo = dbForGoal.retrieveInfo();
             String stepGoal = GoalInfo.get(0) + " Steps in " + GoalInfo.get(1) + " Day(s)";
