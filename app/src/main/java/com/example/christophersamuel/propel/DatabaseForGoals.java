@@ -67,6 +67,7 @@ public class DatabaseForGoals extends SQLiteOpenHelper {
         ArrayList<String> info = new ArrayList<String>();
         String steps = "--------", stepDay = "--------", calories = "--------", caloriesDay = "--------", lbs = "--------", lbsDay = "--------";
         if (cursor.moveToNext()) {
+            cursor.moveToLast();
             steps = cursor.getString(0);
             info.add(0,steps);
             stepDay = cursor.getString(1);
