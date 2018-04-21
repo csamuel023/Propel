@@ -7,16 +7,19 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 public class DatabaseHelper extends SQLiteOpenHelper{
 
     //Setup database
     private static final int DATABASE_VERSION =1;
-    //private static final String DATABASE_NAME = "contacts.db";
+    private static final String DATABASE_NAME = "contacts.db";
     private static final String TABLE_NAME = "contacts";
     private static final String COLUMN_ID = "ID";
     private static final String COLUMN_UNAME = "uname";
     private static final String COLUMN_EMAIL = "email";
     private static final String COLUMN_PASS = "password";
+
     SQLiteDatabase db;
     private static final String TABLE_CREATE = "create table contacts (ID integer primary key not null, " +
             "email text not null, uname text not null, password text not null);";

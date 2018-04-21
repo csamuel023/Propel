@@ -12,12 +12,22 @@ import com.example.christophersamuel.propel.R;
 import java.util.ArrayList;
 
 public class ViewGoal extends AppCompatActivity {
+    DatabaseForGoals dbForGoal = new DatabaseForGoals(this);
+    //DatabaseHelper dbHelper = new DatabaseHelper(this);
+    ArrayList<String> GoalInfo = new ArrayList<String>();
     private Button bDone;
-    ArrayList<String> storeGoal = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_goal);
+
+        //GoalInfo info = new GoalInfo();
+        //info.setCount(0);
+        //dbHelper.insertGoalInfo(info);
+        TextView one = (TextView) findViewById(R.id.one);
+        TextView two = (TextView) findViewById(R.id.two);
+        TextView three = (TextView) findViewById(R.id.three);
+        TextView four = (TextView) findViewById(R.id.four);
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
@@ -29,26 +39,43 @@ public class ViewGoal extends AppCompatActivity {
             String Lbs = bundle.getString("lbs");
             String LbsDay = bundle.getString("lbsWeek");
 
-            TextView one = (TextView) findViewById(R.id.one);
-            TextView two = (TextView) findViewById(R.id.two);
-            TextView three = (TextView) findViewById(R.id.three);
-            TextView four = (TextView) findViewById(R.id.four);
             //Create strings to display
             String stepGoal = Steps + " Steps in " + StepDay + " Day(s)";
             String caloriesGoal = Calories + " Calories in " + CaloriesDay + "Day(s)";
-            String lbsGoal = Lbs + " Lbs in " + LbsDay + "Week(s)";
-            // store String in an array
-            storeGoal.add(0,stepGoal);
-            storeGoal.add(1,caloriesGoal);
-            storeGoal.add(2,lbsGoal);
+            String lbsGoal = Lbs + " Lbs in " + LbsDay + " Week(s)";
+
+            // save data into database
+            GoalInfo info = new GoalInfo();
+            info.setSteps(Steps);
+            info.setStepDay(StepDay);
+            info.setCalories(Calories);
+            info.setCaloriesDay(CaloriesDay);
+            info.setLbs(Lbs);
+            info.setLbsDay(LbsDay);
+            // count that info has entered at least once
+            dbForGoal.insertGoalInfo(info);
+
             // assigns text view into variable
 
 
             // update the text on View Goals
-            one.setText(storeGoal.get(0));
-            two.setText(storeGoal.get(1));
-            three.setText(storeGoal.get(2));
+            one.setText(stepGoal);
+            two.setText(caloriesGoal);
+            three.setText(lbsGoal);
             four.setText("");
+        }
+        else if(dbForGoal.retrieveInfo() != null){
+
+            GoalInfo = dbForGoal.retrieveInfo();
+            String stepGoal = GoalInfo.get(0) + " Steps in " + GoalInfo.get(1) + " Day(s)";
+            String caloriesGoal = GoalInfo.get(2) + " Calories in " + GoalInfo.get(3) + " Day(s)";
+            String lbsGoal = GoalInfo.get(4) + " Lbs in " + GoalInfo.get(5) + " Week(s)";
+
+            one.setText(stepGoal);
+            two.setText(caloriesGoal);
+            three.setText(lbsGoal);
+            if(!GoalInfo.get(0).equals("--------"))
+                four.setText("");
         }
         bDone = (Button) findViewById(R.id.bDone);
         bDone.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +86,7 @@ public class ViewGoal extends AppCompatActivity {
         });
     }
     public void openGoals(){
-        Intent intent = new Intent(this, ViewGoal.class);
+        Intent intent = new Intent(this, Goals.class);
         startActivity(intent);
     }
 }
