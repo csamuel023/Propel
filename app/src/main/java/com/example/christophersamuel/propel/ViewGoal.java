@@ -16,7 +16,6 @@ import java.util.ArrayList;
 public class ViewGoal extends AppCompatActivity {
     DatabaseForGoals dbForGoal = new DatabaseForGoals(this);
     SQLiteDatabase db;
-    //DatabaseHelper dbHelper = new DatabaseHelper(this);
     ArrayList<String> GoalInfo = new ArrayList<String>();
     private Button bDone;
     @Override
@@ -24,9 +23,6 @@ public class ViewGoal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_goal);
 
-        //GoalInfo info = new GoalInfo();
-        //info.setCount(0);
-        //dbHelper.insertGoalInfo(info);
         TextView one = (TextView) findViewById(R.id.one);
         TextView two = (TextView) findViewById(R.id.two);
         TextView three = (TextView) findViewById(R.id.three);
@@ -82,6 +78,7 @@ public class ViewGoal extends AppCompatActivity {
             if(!GoalInfo.get(0).equals("--------"))
                 four.setText("");
         }
+        cursor.close();
         bDone = (Button) findViewById(R.id.bDone);
         bDone.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,6 +1,8 @@
 package com.example.christophersamuel.propel;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +14,8 @@ public class LegsActivity extends AppCompatActivity {
 
     RadioGroup radioGroup;
     RadioButton radioButton;
+    DailyActivityDatabase DADB = new DailyActivityDatabase(this);
+    SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,7 @@ public class LegsActivity extends AppCompatActivity {
                     default:
                         back = new Intent(LegsActivity.this, Day7Activity.class);
                 }
+
                 startActivity(back);
             }
         });

@@ -26,7 +26,7 @@ public class Day2Activity extends AppCompatActivity {
         exercises.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent to_exercises = new Intent(Day2Activity.this, ExercisesActivity.class);
+                Intent to_exercises = new Intent(Day2Activity.this, ExerciseActivities.class);
                 to_exercises.putExtra("i", i);
                 startActivity(to_exercises);
             }

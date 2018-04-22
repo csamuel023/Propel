@@ -2,7 +2,6 @@ package com.example.christophersamuel.propel;
 
 public class GoalInfo {
     String steps, stepDay, calories, caloriesDay, lbs, lbsDay;
-    int count;
 
     public void setSteps(String steps) {
         this.steps = steps;
