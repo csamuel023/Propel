@@ -72,7 +72,7 @@ public class DailyActivityDatabase extends SQLiteOpenHelper{
         ArrayList<String> info = new ArrayList<String>();
         String legs = "--------", chest = "--------", back = "--------", shoulders = "--------", biceps = "--------", core = "--------", cardio = "--------";
         String ID;
-        cursor.moveToFirst();
+        if (cursor.moveToNext()) {
            do{
                ID = cursor.getString(0);
                if(ID == id){
@@ -93,7 +93,7 @@ public class DailyActivityDatabase extends SQLiteOpenHelper{
                }
            }
            while(cursor.moveToNext());
-
+        }
         cursor.close();
         return info;
     }

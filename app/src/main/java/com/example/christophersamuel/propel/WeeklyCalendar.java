@@ -40,31 +40,31 @@ public class WeeklyCalendar extends AppCompatActivity {
         ArrayList<String> day6 = new ArrayList<>();
         ArrayList<String> day7 = new ArrayList<>();
 
-            day1 = dailyActivityDatabase.getDailyActivities(1);
+            day1 = dailyActivityDatabase.getDailyActivities("1");
             ListAdapter listAdapter1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,day1);
             day1List.setAdapter(listAdapter1);
 
-            day2 = dailyActivityDatabase.getDailyActivities(2);
+            day2 = dailyActivityDatabase.getDailyActivities("2");
             ListAdapter listAdapter2 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,day2);
             day2List.setAdapter(listAdapter2);
 
-            day3 = dailyActivityDatabase.getDailyActivities(3);
+            day3 = dailyActivityDatabase.getDailyActivities("3");
             ListAdapter listAdapter3 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,day3);
             day3List.setAdapter(listAdapter3);
 
-            day4 = dailyActivityDatabase.getDailyActivities(4);
+            day4 = dailyActivityDatabase.getDailyActivities("4");
             ListAdapter listAdapter4 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,day4);
             day4List.setAdapter(listAdapter4);
 
-            day5 = dailyActivityDatabase.getDailyActivities(5);
+            day5 = dailyActivityDatabase.getDailyActivities("5");
             ListAdapter listAdapter5 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,day5);
             day5List.setAdapter(listAdapter5);
 
-            day6 = dailyActivityDatabase.getDailyActivities(6);
+            day6 = dailyActivityDatabase.getDailyActivities("6");
             ListAdapter listAdapter6 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,day6);
             day6List.setAdapter(listAdapter6);
 
-            day7 = dailyActivityDatabase.getDailyActivities(7);
+            day7 = dailyActivityDatabase.getDailyActivities("7");
             ListAdapter listAdapter7 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,day7);
             day7List.setAdapter(listAdapter7);
 
