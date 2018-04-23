@@ -11,8 +11,8 @@ import java.util.ArrayList;
 public class DailyActivityDatabase extends SQLiteOpenHelper{
 
     //Setup database
-    private static final int DATABASE_VERSION =2;
-    //private static final String DATABASE_NAME = "dailyActivities.db";
+    private static final int DATABASE_VERSION =1;
+    private static final String DATABASE_NAME = "dailyActivities.db";
     private static final String TABLE_NAME = "activities";
     private static final String COLUMN_ID = "ID";
     private static final String COLUMN_LEGS = "legs";
@@ -30,7 +30,7 @@ public class DailyActivityDatabase extends SQLiteOpenHelper{
 
 
     public DailyActivityDatabase(Context context){
-        super(context, TABLE_NAME,null, DATABASE_VERSION);
+        super(context, DATABASE_NAME,null, DATABASE_VERSION);
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -44,7 +44,7 @@ public class DailyActivityDatabase extends SQLiteOpenHelper{
         db.execSQL(query);
         this.onCreate(db);
     }
-    public void insertDailyActivity(DailyActivityGetSet DAGS){
+    public boolean insertDailyActivity(DailyActivityGetSet DAGS){
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
@@ -61,13 +61,15 @@ public class DailyActivityDatabase extends SQLiteOpenHelper{
         values.put(COLUMN_CORE, DAGS.getCore());
         values.put(COLUMN_CARDIO, DAGS.getCardio());
 
-        db.insert(TABLE_NAME, null, values);
-        cursor.close();
-        db.close();
+        long result = db.insert(TABLE_NAME, null, values);
+        if(result == -1)
+            return false;
+        else
+            return true;
     }
     public ArrayList getDailyActivities(String id){
         db = this.getReadableDatabase();
-        String query = "select id, legs, chest, biceps, back, shoulders, core, cardio from " + TABLE_NAME;
+        String query = "select ID, legs, chest, biceps, back, shoulders, core, cardio from " + TABLE_NAME;
         Cursor cursor = db.rawQuery(query, null);
         ArrayList<String> info = new ArrayList<String>();
         String legs = "--------", chest = "--------", back = "--------", shoulders = "--------", biceps = "--------", core = "--------", cardio = "--------";
@@ -75,7 +77,7 @@ public class DailyActivityDatabase extends SQLiteOpenHelper{
         if (cursor.moveToNext()) {
            do{
                ID = cursor.getString(0);
-               if(ID == id){
+               if(ID.equals(id)){
                    legs = cursor.getString(1);
                    info.add(0,legs);
                    chest = cursor.getString(2);

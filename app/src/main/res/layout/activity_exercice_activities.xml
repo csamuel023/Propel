@@ -646,7 +646,8 @@
             <RadioGroup
                 android:id="@+id/backRadio"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:visibility="visible">
 
                 <TextView
                     android:id="@+id/textback1"
@@ -844,7 +845,7 @@
                 android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SHOULDER:S"
+                android:text="SHOULDERS:"
                 android:textSize="24sp" />
 
             <RadioGroup

@@ -27,7 +27,7 @@ public class DailyActivityGetSet {
     }
 
     public void setBack(String back) {
-        this.chest = back;
+        this.back = back;
     }
 
     public String getBack() {

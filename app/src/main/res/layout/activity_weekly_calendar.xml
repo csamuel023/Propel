@@ -28,7 +28,7 @@
             <ListView
                 android:id="@+id/day1List"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="449dp"
                 android:layout_marginTop="10dp" />
 
             <TextView
@@ -42,7 +42,7 @@
             <ListView
                 android:id="@+id/day2List"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="450dp" />
 
             <TextView
                 android:id="@+id/day3"
@@ -55,7 +55,7 @@
             <ListView
                 android:id="@+id/day3List"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="454dp" />
 
             <TextView
                 android:id="@+id/day4"
@@ -68,7 +68,7 @@
             <ListView
                 android:id="@+id/day4List"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="454dp" />
 
             <TextView
                 android:id="@+id/day5"
@@ -81,7 +81,7 @@
             <ListView
                 android:id="@+id/day5List"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="457dp" />
 
             <TextView
                 android:id="@+id/day6"
@@ -94,7 +94,7 @@
             <ListView
                 android:id="@+id/day6List"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="460dp" />
 
             <TextView
                 android:id="@+id/day7"
@@ -107,7 +107,9 @@
             <ListView
                 android:id="@+id/day7List"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="469dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true" />
         </LinearLayout>
     </ScrollView>
 

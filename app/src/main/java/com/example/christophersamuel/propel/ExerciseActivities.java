@@ -44,7 +44,7 @@ public class ExerciseActivities extends AppCompatActivity {
                 int radioBiceptId = bicepRadio.getCheckedRadioButtonId();
                 bicepsRaB = findViewById(radioBiceptId);
                 //back
-                int radioBackId = bicepRadio.getCheckedRadioButtonId();
+                int radioBackId = backRadio.getCheckedRadioButtonId();
                 backRaB = findViewById(radioBackId);
                 //shoulders
                 int radioShoulderId = shoulderRadio.getCheckedRadioButtonId();
