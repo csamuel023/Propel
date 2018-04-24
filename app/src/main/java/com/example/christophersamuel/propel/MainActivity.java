@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     public void page10(View view)
     {
         setContentView(R.layout.page_10);
@@ -74,11 +75,11 @@ public class MainActivity extends AppCompatActivity {
         EditText height = findViewById(R.id.inHeight);
         EditText weight = findViewById(R.id.inWeight);
         EditText age = findViewById(R.id.inAge);
-        RadioButton rb = findViewById(R.id.radioButton);
-        boolean gender = (rb.isChecked()) ? true : false;
-        RadioButton rb3 = findViewById(R.id.radioButton3);
-        boolean active = (rb3.isChecked()) ? true : false;
-        RadioButton rb4 = findViewById(R.id.radioButton4);
+        RadioButton rb = findViewById(R.id.rbMale);
+        boolean gender = rb.isChecked();
+        RadioButton rb3 = findViewById(R.id.rbActive);
+        boolean active = rb3.isChecked();
+        RadioButton rb4 = findViewById(R.id.rbPassive);
 
         try
         {
@@ -107,8 +108,8 @@ public class MainActivity extends AppCompatActivity {
     public void nopNext(View view)
     {
         //RadioGroup rg = findViewById(R.id.radiogroup);
-        RadioButton yes = findViewById(R.id.radioButton);
-        RadioButton no = findViewById(R.id.radioButton2);
+        RadioButton yes = findViewById(R.id.notOpYes);
+        RadioButton no = findViewById(R.id.notOpNo);
 
         if(yes.isChecked())
         {
@@ -148,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
         int endHour = end.getCurrentHour();
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, (startHour + endHour) / 2);
+        calendar.set(Calendar.HOUR_OF_DAY, startHour);
 
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
@@ -170,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, notificationId, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
         //Sets alarm
         AlarmManager alarmManager = (AlarmManager) this.getSystemService(this.ALARM_SERVICE);
-        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_FIFTEEN_MINUTES, pendingIntent);
     }
 
 
