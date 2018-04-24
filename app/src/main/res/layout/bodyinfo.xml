@@ -62,7 +62,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/rbMale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Male"
@@ -70,7 +70,7 @@
             tools:layout_editor_absoluteY="339dp" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/rbFemale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Female"
@@ -92,7 +92,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/rbActive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Active"
@@ -100,7 +100,7 @@
             tools:layout_editor_absoluteY="339dp" />
 
         <RadioButton
-            android:id="@+id/radioButton4"
+            android:id="@+id/rbPassive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Passive"
@@ -119,7 +119,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/bUpdateProfile"
+        android:id="@+id/buttonBINext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"

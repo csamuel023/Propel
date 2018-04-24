@@ -33,13 +33,7 @@ public class Goals extends AppCompatActivity {
                 openViewGoal();
             }
         });
-        button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openWeeklyCalendar();
-            }
-        });
+
     }
     public void openGoal_short_long(){
         Intent intent1 = new Intent(this,Goal_short_long.class);
@@ -48,9 +42,5 @@ public class Goals extends AppCompatActivity {
     public void openViewGoal(){
         Intent intent2 = new Intent(this,ViewGoal.class);
         startActivity(intent2);
-    }
-    public void openWeeklyCalendar(){
-        Intent intent3 = new Intent(this,WeeklyCalendar.class);
-        startActivity(intent3);
     }
 }

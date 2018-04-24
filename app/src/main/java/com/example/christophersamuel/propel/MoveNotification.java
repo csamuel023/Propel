@@ -1,5 +1,4 @@
 package com.example.christophersamuel.propel;
-
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
