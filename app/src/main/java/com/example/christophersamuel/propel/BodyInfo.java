@@ -1,5 +1,4 @@
 package com.example.christophersamuel.propel;
-
 import android.content.Context;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;

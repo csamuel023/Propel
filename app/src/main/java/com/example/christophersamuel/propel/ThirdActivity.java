@@ -7,11 +7,13 @@ import android.view.View;
 import android.widget.Button;
 
 public class ThirdActivity extends AppCompatActivity {
+
 private Button bGoals;
 private Button btn;
 private Button bSummary;
 private Button bSeeSchedule;
-private Button bUpdateInfo;
+private Button createProfile;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,20 +47,17 @@ private Button bUpdateInfo;
             public void onClick(View v) {
                 Intent intent = new Intent(ThirdActivity.this,WeeklyCalendar.class);
                 startActivity(intent);
-            }
-        });
-        bUpdateInfo = (Button) findViewById(R.id.bUpdateProfile);
-        bUpdateInfo.setOnClickListener(new View.OnClickListener() {
+        // create profile button
+        createProfile = (Button) findViewById(R.id.createProfile);
+        createProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openBody();
+                openCreateProfile();
+            }
+        });
             }
         });
 
-    }
-    public void openBody(){
-        Intent intent = new Intent(this,BodyInfo.class);
-        startActivity(intent);
     }
     public void openGoal(){
         Intent intent = new Intent(this,Goals.class);
@@ -70,7 +69,11 @@ private Button bUpdateInfo;
         startActivity(intent);
     }
     public void openSummary(){
-    Intent intent = new Intent(this, Summary.class);
-    startActivity(intent);
+        Intent intent = new Intent(this, Summary.class);
+        startActivity(intent);
+    }
+    public void openCreateProfile() {
+        Intent intent = new Intent(ThirdActivity.this, BodyInfo.class);
+        startActivity(intent);
     }
 }
