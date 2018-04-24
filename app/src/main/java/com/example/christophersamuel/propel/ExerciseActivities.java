@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class ExerciseActivities extends AppCompatActivity {
 
@@ -30,6 +31,9 @@ public class ExerciseActivities extends AppCompatActivity {
         shoulderRadio = (RadioGroup) findViewById(R.id.shoulderRadio);
         coreRadio = (RadioGroup) findViewById(R.id.coreRadio);
         cardioRadio = (RadioGroup) findViewById(R.id.cardioRadio);
+
+        Bundle bundle = getIntent().getExtras();
+        final String id = bundle.getString("id");
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,16 +83,47 @@ public class ExerciseActivities extends AppCompatActivity {
                     default:
                         back = new Intent(ExerciseActivities.this, Day7Activity.class);
                 }
-                DailyActivityGetSet DAGS = new DailyActivityGetSet();
-                DAGS.setLegs(legRaB.getText().toString());
-                DAGS.setChest(chestRaB.getText().toString());
-                DAGS.setBiceps(bicepsRaB.getText().toString());
-                DAGS.setBack(backRaB.getText().toString());
-                DAGS.setShoulders(shoulderRaB.getText().toString());
-                DAGS.setCore(coreRaB.getText().toString());
-                DAGS.setCardio(cardioRaB.getText().toString());
-                DADB.insertDailyActivity(DAGS);
-                startActivity(back);
+                if(legRaB != null && chestRaB != null && bicepsRaB != null && backRaB != null && shoulderRaB != null
+                        && coreRaB != null && cardioRaB != null) {
+                    DailyActivityGetSet DAGS = new DailyActivityGetSet();
+                    DAGS.setLegs(legRaB.getText().toString());
+                    DAGS.setChest(chestRaB.getText().toString());
+                    DAGS.setBiceps(bicepsRaB.getText().toString());
+                    DAGS.setBack(backRaB.getText().toString());
+                    DAGS.setShoulders(shoulderRaB.getText().toString());
+                    DAGS.setCore(coreRaB.getText().toString());
+                    DAGS.setCardio(cardioRaB.getText().toString());
+                    DADB.insertDailyActivity(DAGS, id);
+                    startActivity(back);
+                }
+                else if (legRaB == null){
+                    Toast leg = Toast.makeText(ExerciseActivities.this, "Please choose one leg exercise", Toast.LENGTH_SHORT);
+                    leg.show();
+                }
+                else if (chestRaB == null){
+                    Toast chest = Toast.makeText(ExerciseActivities.this, "Please choose one chest exercise", Toast.LENGTH_SHORT);
+                    chest.show();
+                }
+                else if (bicepsRaB == null){
+                    Toast biceps = Toast.makeText(ExerciseActivities.this, "Please choose one biceps exercise", Toast.LENGTH_SHORT);
+                    biceps.show();
+                }
+                else if (backRaB == null){
+                    Toast Back = Toast.makeText(ExerciseActivities.this, "Please choose one back exercise", Toast.LENGTH_SHORT);
+                    Back.show();
+                }
+                else if (shoulderRaB == null){
+                    Toast shoulders = Toast.makeText(ExerciseActivities.this, "Please choose one shoulders exercise", Toast.LENGTH_SHORT);
+                    shoulders.show();
+                }
+                else if (coreRaB == null){
+                    Toast core = Toast.makeText(ExerciseActivities.this, "Please choose one core exercise", Toast.LENGTH_SHORT);
+                    core.show();
+                }
+                else if (cardioRaB == null){
+                    Toast cardio = Toast.makeText(ExerciseActivities.this, "Please choose one cardio exercise", Toast.LENGTH_SHORT);
+                    cardio.show();
+                }
             }
         });
     }

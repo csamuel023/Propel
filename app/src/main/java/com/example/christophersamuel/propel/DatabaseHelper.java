@@ -48,7 +48,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         String query = "select * from " + TABLE_NAME;
         Cursor cursor = db.rawQuery(query,null);
         int count = cursor.getCount();
-
         values.put(COLUMN_ID, count);
         values.put(COLUMN_UNAME, contact.getUname());
         values.put(COLUMN_EMAIL, contact.getEmail());
@@ -67,7 +66,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         if (cursor.moveToNext())
             do {
                 uName = cursor.getString(0);
-                if (uName.equals(uname)) {
+                if (uName.equalsIgnoreCase(uname)) {
                     passW = cursor.getString(1);
                     break;
                 }

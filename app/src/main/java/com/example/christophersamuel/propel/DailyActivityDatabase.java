@@ -44,15 +44,14 @@ public class DailyActivityDatabase extends SQLiteOpenHelper{
         db.execSQL(query);
         this.onCreate(db);
     }
-    public boolean insertDailyActivity(DailyActivityGetSet DAGS){
+    public boolean insertDailyActivity(DailyActivityGetSet DAGS, String id){
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
         String query = "select * from " + TABLE_NAME;
         Cursor cursor = db.rawQuery(query,null);
-        int count = cursor.getCount() +1;
 
-        values.put(COLUMN_ID, count);
+        values.put(COLUMN_ID, id);
         values.put(COLUMN_LEGS, DAGS.getLegs());
         values.put(COLUMN_CHEST, DAGS.getChest());
         values.put(COLUMN_BICEPS, DAGS.getBiceps());
@@ -98,5 +97,39 @@ public class DailyActivityDatabase extends SQLiteOpenHelper{
         }
         cursor.close();
         return info;
+    }
+    public boolean searchExist(String id) {
+        db = this.getReadableDatabase();
+        String query = "select ID, legs, chest, biceps, back, shoulders, core, cardio from " + TABLE_NAME;
+        Cursor cursor = db.rawQuery(query, null);
+        String ID;
+        if (cursor.moveToNext())
+            do {
+                ID = cursor.getString(0);
+                if (ID.equals(id)) {
+                    return true;
+                }
+            }
+            while (cursor.moveToNext());
+        cursor.close();
+        return false;
+    }
+    public boolean deleteActivities(String id){
+        db = this.getReadableDatabase();
+        String query = "select ID, legs, chest, biceps, back, shoulders, core, cardio from " + TABLE_NAME;
+        String queryd = "delete from " + TABLE_NAME + " where " +COLUMN_ID + " = " +id + "";
+        Cursor cursor = db.rawQuery(query, null);
+        String ID;
+        if (cursor.moveToNext())
+            do {
+                ID = cursor.getString(0);
+                if (ID.equals(id)) {
+                    db.execSQL(queryd);
+                    return true;
+                }
+            }
+            while (cursor.moveToNext());
+        cursor.close();
+        return false;
     }
 }
