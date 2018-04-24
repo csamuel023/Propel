@@ -7,6 +7,20 @@
     tools:context="com.example.christophersamuel.propel.Goal_short_long">
 
     <Button
+        android:id="@+id/benterExercises"
+        android:layout_width="163dp"
+        android:layout_height="82dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="45dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/background_light"
+        android:backgroundTint="@android:color/holo_green_light"
+        android:text="Enter Excercises"
+        tools:layout_editor_absoluteX="110dp"
+        tools:layout_editor_absoluteY="133dp" />
+
+    <Button
         android:id="@+id/bCreateGoal"
         android:layout_width="163dp"
         android:layout_height="82dp"

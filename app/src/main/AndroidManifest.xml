@@ -47,7 +47,8 @@
         <activity android:name=".ShouldersActivity" />
         <activity android:name=".ThirdActivity" />
         <activity android:name=".LoginSinup" />
-        <activity android:name=".ExerciseActivities"></activity>
+        <activity android:name=".ExerciseActivities" />
+        <activity android:name=".EnterExcercise"></activity>
     </application>
 
 </manifest>
