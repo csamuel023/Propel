@@ -11,6 +11,7 @@ private Button bGoals;
 private Button btn;
 private Button bSummary;
 private Button bSeeSchedule;
+private Button bUpdateInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +47,18 @@ private Button bSeeSchedule;
                 startActivity(intent);
             }
         });
+        bUpdateInfo = (Button) findViewById(R.id.bUpdateProfile);
+        bUpdateInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openBody();
+            }
+        });
 
+    }
+    public void openBody(){
+        Intent intent = new Intent(this,BodyInfo.class);
+        startActivity(intent);
     }
     public void openGoal(){
         Intent intent = new Intent(this,Goals.class);
