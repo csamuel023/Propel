@@ -11,7 +11,7 @@ import com.example.christophersamuel.propel.R;
 public class Goals extends AppCompatActivity {
     private Button bCreateGoal;
     private Button bViewGoal;
-    private Button benterExcercise;
+    private Button bEnterExcercise;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +33,11 @@ public class Goals extends AppCompatActivity {
                 openViewGoal();
             }
         });
-        benterExcercise = (Button) findViewById(R.id.benterExercises);
-        benterExcercise.setOnClickListener(new View.OnClickListener() {
+        bEnterExcercise = (Button) findViewById(R.id.benterExercises);
+        bEnterExcercise.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent1 = new Intent(Goals.this,EnterExcercise.class);
-                startActivity(intent1);
+            public void onClick(View view) {
+                openEnterExcercise();
             }
         });
     }
@@ -50,8 +49,8 @@ public class Goals extends AppCompatActivity {
         Intent intent2 = new Intent(this,ViewGoal.class);
         startActivity(intent2);
     }
-    public void openWeeklyCalendar(){
-        Intent intent3 = new Intent(this,WeeklyCalendar.class);
+    public void openEnterExcercise(){
+        Intent intent3 = new Intent(this,EnterExcercise.class);
         startActivity(intent3);
     }
 }

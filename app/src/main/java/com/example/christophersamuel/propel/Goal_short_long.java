@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.christophersamuel.propel.R;
-
 import java.util.ArrayList;
 
 public class Goal_short_long extends AppCompatActivity {
@@ -38,7 +36,7 @@ public class Goal_short_long extends AppCompatActivity {
         lbs = (EditText) findViewById(R.id.lbs);
         lbsDay = (EditText) findViewById(R.id.lbsDay);
 
-        bDone = (Button) findViewById(R.id.bDone);              //define button
+        bDone = (Button) findViewById(R.id.bDoneE);              //define button
         bDone.setOnClickListener(new View.OnClickListener() {   // when click done, save info and
             @Override                                           // move back to Goals
             public void onClick(View view) {

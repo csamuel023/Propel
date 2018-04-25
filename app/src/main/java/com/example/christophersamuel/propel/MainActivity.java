@@ -81,27 +81,6 @@ public class MainActivity extends AppCompatActivity {
         boolean active = rb3.isChecked();
         RadioButton rb4 = findViewById(R.id.rbPassive);
 
-        try
-        {
-            BodyInfo.saveBodyInfo(height.getText().toString(), weight.getText().toString(), age.getText().toString(), gender, active, this.getApplicationContext());
-        }
-        catch(IOException e)
-        {
-            return;
-        }
-
-        if(rb3.isChecked())//Should be active
-        {
-            setContentView(R.layout.notification_option);
-        }
-        else if(rb4.isChecked())//Should be passive
-        {
-            setContentView(R.layout.notification_time);
-        }
-        else
-        {
-            //Do nothing for now
-        }
     }
 
     //NotificationOption

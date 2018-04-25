@@ -48,7 +48,8 @@
         <activity android:name=".ThirdActivity" />
         <activity android:name=".LoginSinup" />
         <activity android:name=".ExerciseActivities" />
-        <activity android:name=".EnterExcercise"></activity>
+        <activity android:name=".EnterExcercise" />
+        <activity android:name=".BodyInfos"></activity>
     </application>
 
 </manifest>

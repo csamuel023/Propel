@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,31 +7,23 @@
     tools:context="com.example.christophersamuel.propel.Goal_short_long">
 
     <Button
-        android:id="@+id/benterExercises"
-        android:layout_width="163dp"
-        android:layout_height="82dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="45dp"
-        android:layout_marginTop="40dp"
-        android:background="@android:color/background_light"
-        android:backgroundTint="@android:color/holo_green_light"
-        android:text="Enter Excercises"
-        tools:layout_editor_absoluteX="110dp"
-        tools:layout_editor_absoluteY="133dp" />
-
-    <Button
         android:id="@+id/bCreateGoal"
         android:layout_width="163dp"
         android:layout_height="82dp"
         android:layout_alignTop="@+id/bViewGoal"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="152dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginLeft="111dp"
+        android:layout_marginRight="110dp"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="60dp"
         android:background="@android:color/background_light"
         android:backgroundTint="@android:color/holo_green_light"
         android:text="Create Goal"
-        tools:layout_editor_absoluteX="110dp"
-        tools:layout_editor_absoluteY="133dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/bViewGoal"
@@ -39,11 +31,34 @@
         android:layout_height="82dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="93dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginLeft="111dp"
+        android:layout_marginRight="110dp"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="49dp"
         android:background="@android:color/holo_green_light"
         android:text="View Goal"
-        tools:layout_editor_absoluteX="111dp"
-        tools:layout_editor_absoluteY="246dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bCreateGoal" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/benterExercises"
+        android:layout_width="163dp"
+        android:layout_height="82dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="110dp"
+        android:layout_marginLeft="111dp"
+        android:layout_marginRight="110dp"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="49dp"
+        android:background="@android:color/background_light"
+        android:backgroundTint="@android:color/holo_green_light"
+        android:text="Enter Excercises"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bViewGoal" />
+
+</android.support.constraint.ConstraintLayout>
 

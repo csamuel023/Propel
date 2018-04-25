@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="390dp"
-        android:layout_above="@+id/bDone"
+        android:layout_above="@+id/bDoneE"
         android:layout_alignParentStart="true"
         android:orientation="vertical">
 
@@ -35,7 +35,7 @@
             android:layout_toEndOf="@+id/textView3"
             android:layout_toRightOf="@+id/textView3"
             android:ems="10"
-            android:hint="1000"
+            android:hint="20"
             android:inputType="text"
             android:textAlignment="center"
             android:textSize="24sp"
@@ -64,7 +64,7 @@
             android:layout_toLeftOf="@+id/textView7"
             android:layout_toStartOf="@+id/textView7"
             android:ems="10"
-            android:hint="2000"
+            android:hint="20"
             android:inputType="text"
             android:textAlignment="center"
             android:textSize="24sp"
@@ -84,6 +84,22 @@
             android:textSize="24sp"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="197dp" />
+
+        <EditText
+            android:id="@+id/stepss"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/stepDay"
+            android:layout_marginTop="31dp"
+            android:layout_toLeftOf="@+id/textView7"
+            android:layout_toStartOf="@+id/textView7"
+            android:ems="10"
+            android:hint="get from Google Fit(or Health (IOS)"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="125dp" />
     </LinearLayout>
 
     <TextView
@@ -98,7 +114,7 @@
         android:textSize="24sp" />
 
     <Button
-        android:id="@+id/bDone"
+        android:id="@+id/bDoneE"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

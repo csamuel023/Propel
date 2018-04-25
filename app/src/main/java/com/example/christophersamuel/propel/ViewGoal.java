@@ -9,8 +9,6 @@ import android.widget.Button;
 import android.content.Intent;
 import android.widget.TextView;
 
-import com.example.christophersamuel.propel.R;
-
 import java.util.ArrayList;
 
 public class ViewGoal extends AppCompatActivity {
@@ -79,7 +77,7 @@ public class ViewGoal extends AppCompatActivity {
                 four.setText("");
         }
         cursor.close();
-        bDone = (Button) findViewById(R.id.bDone);
+        bDone = (Button) findViewById(R.id.bDoneE);
         bDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

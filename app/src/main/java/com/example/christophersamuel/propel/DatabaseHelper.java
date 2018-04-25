@@ -20,19 +20,10 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_EMAIL = "email";
     private static final String COLUMN_PASS = "password";
 
-    private static final String TABLE_BODY = "body";
-    private static final String COLUMN_HEIGHT = "height";
-    private static final String COLUMN_WEIGHT = "weight";
-    private static final String COLUMN_AGE = "age";
-    private static final String COLUMN_GENDER = "gender";
-    private static final String COLUMN_USERTYPE = "userType";
-
-
     SQLiteDatabase db;
     private static final String TABLE_CREATE = "create table contacts (ID integer primary key not null, " +
             "email text not null, uname text not null, password text not null);";
-    private static final String TABLE_CREATE_BODY = "create table body (height integer primary key not null, " +
-            "weight integer not null, age integer not null, gender text not null, userType text not null);";
+
 
     public DatabaseHelper(Context context){
         super(context, TABLE_NAME,null, DATABASE_VERSION);
@@ -41,14 +32,12 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TABLE_CREATE);
-        db.execSQL(TABLE_CREATE_BODY);
         this.db = db;
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         String query = "DROP TABLE IF EXISTS " + TABLE_NAME;
-        String query1 = "DROP TABLE IF EXISTS " + TABLE_BODY;
         db.execSQL(query);
         this.onCreate(db);
     }
