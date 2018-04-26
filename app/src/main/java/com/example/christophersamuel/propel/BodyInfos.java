@@ -14,7 +14,7 @@ import android.widget.RadioGroup;
 import java.util.ArrayList;
 
 public class BodyInfos extends AppCompatActivity {
-    private Button bUpdate;
+    private Button bUpdate, bOption, bTime;
     DatabaseForBodyInfo databaseForBodyInfo = new DatabaseForBodyInfo(this);
     SQLiteDatabase db;
 
@@ -55,6 +55,8 @@ public class BodyInfos extends AppCompatActivity {
 
 
         }
+        bOption = (Button) findViewById(R.id.bOption);
+        bTime = (Button) findViewById(R.id.bTime);
         bUpdate = (Button) findViewById(R.id.bUpdate);
         bUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,11 +79,35 @@ public class BodyInfos extends AppCompatActivity {
                     bodyInfoGetSet.setGender(getGender.getText().toString());
                     bodyInfoGetSet.setUserType(getUser.getText().toString());
                     databaseForBodyInfo.insertBodyInfo(bodyInfoGetSet, "1");
-                Intent intent = new Intent(BodyInfos.this, ThirdActivity.class);
-                startActivity(intent);
+                if(getUser.getText().toString().equals("Active")){
+
+                   bOption.setVisibility(View.VISIBLE);
+
+                   bTime.setVisibility(View.INVISIBLE);
+
+                }
+                else{
+                    bTime.setVisibility(View.VISIBLE);
+                    bOption.setVisibility(View.INVISIBLE);
+                }
 
             }
         });
+        bOption.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BodyInfos.this, NotificationOption.class);
+                startActivity(intent);
+            }
+        });
+        bTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BodyInfos.this, NotificationTime.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }

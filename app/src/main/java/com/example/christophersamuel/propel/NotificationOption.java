@@ -15,7 +15,7 @@ public class NotificationOption extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.notification_option);
+        setContentView(R.layout.activity_notification_option);
 
         yes = findViewById(R.id.notOpYes);
         no = findViewById(R.id.notOpNo);

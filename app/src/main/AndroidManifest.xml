@@ -47,10 +47,11 @@
         <activity android:name=".ShouldersActivity" />
         <activity android:name=".ThirdActivity" />
         <activity android:name=".LoginSinup" />
-        <activity android:name=".ExerciseActivities"></activity>
-        <activity android:name=".BodyInfo"></activity>
+        <activity android:name=".ExerciseActivities" />
+        <activity android:name=".EnterExcercise" />
+        <activity android:name=".BodyInfos" />
+        <activity android:name=".NotificationOption" />
         <activity android:name=".NotificationTime"></activity>
-        <activity android:name=".NotificationOption"></activity>
     </application>
 
 </manifest>

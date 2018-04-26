@@ -26,7 +26,7 @@ public class NotificationTime extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.notification_time);
+        setContentView(R.layout.activity_notification_time);
 
         start = findViewById(R.id.timePicker);
         end = findViewById(R.id.timePicker2);
