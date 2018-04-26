@@ -1,33 +1,44 @@
 package com.example.christophersamuel.propel;
+import android.content.Intent;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 public class NotificationOption extends AppCompatActivity {
+
+    private RadioButton yes;
+    private RadioButton no;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.notification_option);
+
+        yes = findViewById(R.id.notOpYes);
+        no = findViewById(R.id.notOpNo);
     }
 
-    /*public void nopNext(View view)
-    {
-        RadioGroup rg = findViewById(R.id.radiogroup);
 
-        if(rg.getCheckedRadioButtonId() == -1)
+    //NotificationOption
+    public void nopNext(View view)
+    {
+        Intent intent = null;
+        if(yes.isChecked())
+        {
+            intent = new Intent(this, NotificationTime.class);
+        }
+        else if(no.isChecked())
+        {
+            intent = new Intent(this, ThirdActivity.class);
+        }
+        else
         {
             //Do nothing for now
         }
-        else if(rg.getCheckedRadioButtonId() == 0)//Should be yes
-        {
-            setContentView(R.layout.notification_time);
-        }
-        else//Should be no
-        {
-            setContentView(R.layout.activity_main);
-        }
-    }*/
+
+        startActivity(intent);
+    }
 }
