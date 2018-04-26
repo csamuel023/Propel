@@ -70,6 +70,18 @@ public class BodyInfo extends AppCompatActivity
             else
                 rb2.setChecked(true);
 
+            String active = "";
+            if(in.ready())
+            {
+                active = in.readLine();
+
+                if(active.equalsIgnoreCase("active"))
+                    rb3.setChecked(true);
+                else
+                    rb4.setChecked(true);
+            }
+
+
             in.close();
         }
         catch(IOException e)
@@ -117,7 +129,8 @@ public class BodyInfo extends AppCompatActivity
     {
         FileOutputStream out = null;
         String content = "" + height + "\n" + weight + "\n" + age + "\n";
-        content += (gender) ? "male" : "female";
+        content += (gender) ? "male\n" : "female\n";
+        content += (active) ? "active" : "passive";
 
         try//Tries opening file as if it already exists
         {
