@@ -7,6 +7,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.icu.util.Calendar;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -35,18 +36,28 @@ public class NotificationTime extends AppCompatActivity
 
 
     //Notification time
-    @TargetApi(24)
+    //@TargetApi(24)
     public void notNext(View view)
     {
         //Initializes variables
         int notificationId = 1;
-        int startHour = start.getHour();
-        int startMinute = start.getMinute();
-        int endHour = end.getHour();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, startHour);
-        calendar.set(Calendar.MINUTE, startMinute);
+        int startHour;
+        int startMinute;
+        int endHour;
+        Calendar calendar = null;
+
+        //Prevents errors with lower api levels
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+        {
+            startHour = start.getHour();
+            startMinute = start.getMinute();
+            endHour = end.getHour();
+            calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(System.currentTimeMillis());
+            calendar.set(Calendar.HOUR_OF_DAY, startHour);
+            calendar.set(Calendar.MINUTE, startMinute);
+        }
+
 
         Intent intent = new Intent(this, ThirdActivity.class);
         PendingIntent activity = PendingIntent.getActivity(this, notificationId, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -88,15 +99,19 @@ public class NotificationTime extends AppCompatActivity
 
         notificationManager.notify(notificationId + 2, notification3);
 
+        //Prevents api version issues
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+        {
+            //Sets timed repeating notifications
+            Intent notificationIntent = new Intent(this, MoveNotification.class);
+            notificationIntent.putExtra(MoveNotification.NOTIFICATION_ID, notificationId);
+            notificationIntent.putExtra(MoveNotification.NOTIFICATION, notification1);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, notificationId, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            //Sets alarm
+            AlarmManager alarmManager = (AlarmManager) this.getSystemService(this.ALARM_SERVICE);
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1000*60, pendingIntent);
+        }
 
-        //Sets timed repeating notifications
-        Intent notificationIntent = new Intent(this, MoveNotification.class);
-        notificationIntent.putExtra(MoveNotification.NOTIFICATION_ID, notificationId);
-        notificationIntent.putExtra(MoveNotification.NOTIFICATION, notification1);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, notificationId, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        //Sets alarm
-        AlarmManager alarmManager = (AlarmManager) this.getSystemService(this.ALARM_SERVICE);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1000*60, pendingIntent);
 
         startActivity(intent);
     }
