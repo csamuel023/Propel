@@ -33,14 +33,33 @@ public class Summary extends AppCompatActivity {
         //db1 = dailyActivityDatabase.getWritableDatabase();
        // Cursor cursor1 = db.rawQuery("select * from activities", null);
         if(cursor.getCount() != 0){
+            int calPush, calJump, passCal;
             if(databaseForUserManualEnter.searchExist("1")){
                 ArrayList<String> AL = databaseForUserManualEnter.getEnter("1");
-                int passCal = Integer.parseInt(AL.get(2));
+
+                if(AL.get(0).equals("")){
+                    calPush = 0;
+                }
+                else {
+                    calPush = Integer.parseInt(AL.get(0));
+                }
+                if(AL.get(1).equals("")){
+                    calJump = 0;
+                }
+                else {
+                    calJump = Integer.parseInt(AL.get(1));
+                }
+                if(AL.get(2).equals("")){
+                     passCal = 0;
+                }
+                else{
+                    passCal = Integer.parseInt(AL.get(2));
+                }
                 passCal = passCal / 20;
                 passCalories.setText(String.valueOf(passCal));
-                int calPush = Integer.parseInt(AL.get(0));
+
                 calPush = calPush * (1/2);
-                int calJump = Integer.parseInt(AL.get(1));
+
                 calJump = calJump * 2;
                 int totalCal = passCal + calPush + calJump;
                 totalCalories.setText(String.valueOf(totalCal));

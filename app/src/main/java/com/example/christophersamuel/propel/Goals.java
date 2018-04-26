@@ -11,7 +11,7 @@ import com.example.christophersamuel.propel.R;
 public class Goals extends AppCompatActivity {
     private Button bCreateGoal;
     private Button bViewGoal;
-    private Button bEnterExcercise;
+    private Button bEnterExcercise, Done;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,14 @@ public class Goals extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 openEnterExcercise();
+            }
+        });
+        Done = (Button) findViewById(R.id.bDone);
+        Done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(Goals.this,ThirdActivity.class);
+                startActivity(intent1);
             }
         });
     }
