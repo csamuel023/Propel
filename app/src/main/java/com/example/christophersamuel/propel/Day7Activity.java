@@ -36,6 +36,12 @@ public class Day7Activity extends AppCompatActivity {
                         exist.show();
                     }
                 }
+                else {
+                    Intent to_exercises = new Intent(Day7Activity.this, ExerciseActivities.class);
+                    to_exercises.putExtra("id", "7");
+                    to_exercises.putExtra("i", i);
+                    startActivity(to_exercises);
+                }
             }
         });
         Button done = (Button)findViewById(R.id.done);
