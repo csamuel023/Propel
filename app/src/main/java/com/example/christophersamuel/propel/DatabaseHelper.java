@@ -14,11 +14,11 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     //Setup database
     private static final int DATABASE_VERSION =1;
     //private static final String DATABASE_NAME = "contacts.db";
-    private static final String TABLE_NAME = "contacts";
-    private static final String COLUMN_ID = "ID";
-    private static final String COLUMN_UNAME = "uname";
-    private static final String COLUMN_EMAIL = "email";
-    private static final String COLUMN_PASS = "password";
+    static final String TABLE_NAME = "contacts";
+    static final String COLUMN_ID = "ID";
+    static final String COLUMN_UNAME = "uname";
+    static final String COLUMN_EMAIL = "email";
+    static final String COLUMN_PASS = "password";
 
     SQLiteDatabase db;
     private static final String TABLE_CREATE = "create table contacts (ID integer primary key not null, " +
