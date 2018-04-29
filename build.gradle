@@ -7,7 +7,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.1'
+        classpath 'com.android.tools.build:gradle:3.1.2'
         // Required -- JUnit 4 framework
         classpath 'junit:junit:4.12'
         // Optional -- Mockito framework
