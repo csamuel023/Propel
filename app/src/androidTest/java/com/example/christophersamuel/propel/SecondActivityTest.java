@@ -19,10 +19,10 @@ import static junit.framework.Assert.assertNotNull;
 public class SecondActivityTest {
 
     @Rule
-    public ActivityTestRule<MainActivity> secondActivityTestRule =
-            new ActivityTestRule<MainActivity>(MainActivity.class);
+    public ActivityTestRule<SecondActivity> secondActivityTestRule =
+            new ActivityTestRule<SecondActivity>(SecondActivity.class);
 
-    private MainActivity secondActivity = null;
+    private SecondActivity secondActivity = null;
 
     Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(LoginSinup.class.getName(), null, false);
 
@@ -60,7 +60,7 @@ public class SecondActivityTest {
         Activity secondActivity = getInstrumentation().waitForMonitorWithTimeout(monitor, 5000);
         assertNotNull(secondActivity);
         secondActivity.finish();
-        
+
     }
 
     @After

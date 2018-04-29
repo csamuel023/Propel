@@ -19,10 +19,10 @@ import static junit.framework.Assert.assertNotNull;
 public class LoginSinupTest {
 
     @Rule
-    public ActivityTestRule<MainActivity> loginSinupTestRule =
-            new ActivityTestRule<MainActivity>(MainActivity.class);
+    public ActivityTestRule<LoginSinup> loginSinupTestRule =
+            new ActivityTestRule<LoginSinup>(LoginSinup.class);
 
-    private MainActivity loginSinupActivity = null;
+    private LoginSinup loginSinupActivity = null;
 
     Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(LoginSinup.class.getName(), null, false);
 
